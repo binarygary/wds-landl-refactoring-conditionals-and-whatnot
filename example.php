@@ -31,7 +31,11 @@ function wds_wintellect_blog_landing_posts_count( $query ) {
 			$sticky_count = 1;
 		}
 
-		$offset = ( $sticky_count <= 12 ) ? $sticky_count : 12;
+		if ( $sticky_count <= 12 ) {
+			$offset = $sticky_count;
+		} else {
+			$offset = 12;
+		}
 
 		if ( ! $query->is_paged() ) {
 			$query->set( 'posts_per_page', ( 12 - $offset ) );
