@@ -9,7 +9,7 @@
  */
 function wds_wintellect_blog_landing_posts_count( $query ) {
 
-	if ( isset( $query->query['pagename'] ) && 'devcenter' == $query->query['pagename'] ) {
+	if ( isset( $query->query['pagename'] ) && 'devcenter' === $query->query['pagename'] ) {
 
 		// Get the sticky posts.
 		$sticky = get_option( 'sticky_posts' );
@@ -45,7 +45,7 @@ function wds_wintellect_blog_landing_posts_count( $query ) {
 			$query->set( 'posts_per_page', 12 );
 			$query->set( 'offset', $offset );
 		}
-	}
+	} // End super-long if.
 }
 add_action( 'pre_get_posts', 'wds_wintellect_blog_landing_posts_count', 1 );
 
